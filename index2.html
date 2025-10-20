@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Tes Kecepatan Jaringan Otomatis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Speedtest by 0075,0260,0469,0241</span>
+            <span class="navbar-text">
+                <button type="button" class="btn btn-danger"><a href="index.html">Logout</a></button>
+            </span>
+        </div>
+    </nav>
+
+    <hr>
+    <div class="container">   
+        <h1>Selamat Datang,<div id="namaOutput" class="nama-display">Memuat Nama...</div></h1>
+        
+        <p>Gunakan tombol di bawah untuk memulai tes kecepatan jaringan Anda.</p>
+        <div class="text-center">    
+            <button id="checkSpeedBtn" class="btn btn-primary btn-lg">Cek Kecepatan Jaringan</button>
+            <h2>Hasil Tes Kecepatan</h2>
+            <table id="resultTable" border="1" class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">Waktu Tes</th>
+                        <th scope="col">Kecepatan Unduh (Mbps)</th>
+                        <th scope="col">Kecepatan Unggah (Mbps)</th>
+                        <th scope="col">Latensi (ms)</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk mengambil parameter dari URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Jalankan saat halaman dimuat
+        window.onload = function() {
+            // 1. Ambil nilai 'nama' dari parameter URL
+            let nama = getQueryParam('nama');
+
+            // 2. Cek apakah nama ada dan decode jika ada
+            if (nama) {
+                nama = decodeURIComponent(nama);
+            } else {
+                nama = "Tamu Tak Dikenal"; // Nama default jika parameter tidak ditemukan
+            }
+
+            // 3. Tampilkan nama di elemen HTML
+            document.getElementById('namaOutput').textContent = nama;
+        };
+    </script>
+    <script src="script2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

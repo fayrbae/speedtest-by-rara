@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Awal</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .container { max-width: 400px; margin: 50px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; text-align: center; }
+        input[type="text"] { width: 90%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; }
+        button { background-color: #007bff; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+    </style>
+
+</head>
+<body>
+
+
+    <div class="container">
+        <h1>Selamat Datang!</h1>
+        <p>Silahkan isi nama Anda di input di bawah:</p>
+
+        <input type="text" id="namaInput" placeholder="Masukkan nama Anda di sini">
+        
+        <button onclick="mulaiProgram()">Login</button>
+    </div>
+
+    <script>
+        function mulaiProgram() {
+            // 1. Ambil nilai dari input
+            const nama = document.getElementById('namaInput').value;
+
+            // 2. Cek apakah input kosong
+            if (nama.trim() === "") {
+                alert("Nama tidak boleh kosong. Silakan isi nama Anda.");
+                return; // Hentikan fungsi jika kosong
+            }
+
+            // 3. Encode nama agar aman dalam URL (menangani spasi atau karakter khusus)
+            const encodedNama = encodeURIComponent(nama);
+
+            // 4. Pindah ke halaman berikutnya (page2.html) dan kirim nama sebagai parameter URL
+            window.location.href = `index2.html?nama=${encodedNama}`;
+        }
+    </script>
+    <script>
+        console.clear();
+        Splitting();
+    </script>
+
+</body>
+</html>
